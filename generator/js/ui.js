@@ -531,7 +531,7 @@ $(document).ready(function () {
 	$("#card-background").change(ui_change_card_property);
 	$("#card-color").change(ui_change_card_color);
     $("#card-contents").change(ui_change_card_contents);
-	$("#card-bgtext").change(ui_change_card_contents);
+	$("#card-bgtext").change(ui_change_card_property);
     $("#card-tags").change(ui_change_card_tags);
 
     $("#card-contents").keyup(ui_change_card_contents_keyup);
