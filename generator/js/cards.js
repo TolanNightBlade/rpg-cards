@@ -321,7 +321,8 @@ function card_generate_color_style(color, options) {
 }
 
 function card_generate_color_gradient_style(color, options) {
-    return 'style="background: radial-gradient(ellipse at center, white 20%, ' + color + ' 120%)"';
+    //return 'style="background: radial-gradient(ellipse at center, white 20%, ' + color + ' 120%)"';
+	return 'style="background: radial-gradient(ellipse at center, white 20%, white 120%)"';
 }
 
 function card_generate_front(data, options) {
