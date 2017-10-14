@@ -21,8 +21,9 @@
     background-color: white;
     border-color: inherit;
     display: flex;
-    flex-direction: column;
+    flex-direction: column wrap;
     flex: 1;
+	justify-content: space-around;
     font-size: inherit;
 }
 
