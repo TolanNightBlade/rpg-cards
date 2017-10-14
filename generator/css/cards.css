@@ -104,6 +104,9 @@
     background-color: inherit;
     color: white;
 }
+.card-title-back {
+	color: black;
+}
 .card-title-16 {
     font-size: 16pt;
     line-height: 6.5mm;
