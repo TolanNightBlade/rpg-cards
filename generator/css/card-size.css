@@ -33,7 +33,7 @@ page[size="A4"] {
 
 /* A6 paper area */
 /* Chrome has problems with page sizes given in metric units. Make the paper area slightly smaller to work around this. */
-page[size="A4"] {
+page[size="A6"] {
     width:  105mm; /* full: 105.0mm */
     height: 148mm; /* full: 148.0mm */
 }
@@ -84,6 +84,12 @@ page[size="25x35"] {
 .card-size-35x50 .card-back-icon {
     width: 1.5in;
     height: 1.5in;
+}
+
+.card-size-41x48 {
+    width:4.1in;
+    min-width:4.1in;
+    height:5.8in;
 }
 
 /* Landscape big card */
