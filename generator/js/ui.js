@@ -182,7 +182,7 @@ function ui_update_selected_card() {
         $("#card-icon-back").val(card.icon_back);
 		$("#card-background").val(card.background_image);
         $("#card-contents").val(card.contents.join("\n"));
-		$("#bg-text").val(card.bgtext || "");
+		$("#card-bgtext").val(card.bgtext);
         $("#card-tags").val(card.tags.join(", "));
         $("#card-color").val(card.color).change();
     } else {
@@ -193,7 +193,7 @@ function ui_update_selected_card() {
         $("#card-icon-back").val("");
 		$("#card-background").val("");
         $("#card-contents").val("");
-		$("#bg-text").val("");
+		$("#card-bgtext").val("");
         $("#card-tags").val("");
         $("#card-color").val("").change();
     }
