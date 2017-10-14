@@ -360,6 +360,9 @@ function card_generate_back(data, options) {
     console.log('options.rounded_corners', options.rounded_corners);
     result += '<div class="card card-size-' + options.card_size + ' ' + (options.rounded_corners ? 'rounded-corners' : '') + '" ' + style_color + '>';
     result += '  <div class="card-back" ' + background_style + '>';
+	if(data.bgtext && data.bgtext != "") {
+		result += '     <div>' + data.bgtext + '</div>';
+	}
 	if (!url)
 	{
 		result += '    <div class="card-back-inner">';
