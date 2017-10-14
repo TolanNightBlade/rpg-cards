@@ -368,7 +368,7 @@ ui_change_card_contents_keyup.timeout = null;
 function ui_change_card_bgtext_keyup() {
 	clearTimeout(ui_change_card_bgtext_keyup.timeout);
     ui_change_card_bgtext_keyup.timeout = setTimeout(function () {
-        $('#bg-text').trigger('change');
+        $('#card-bgtext').trigger('change');
     }, 200);
 }
 ui_change_card_bgtext_keyup.timeout = null;
