@@ -106,6 +106,7 @@
 }
 .card-title-back {
 	color: black;
+	height: auto;
 }
 .card-title-16 {
     font-size: 16pt;
