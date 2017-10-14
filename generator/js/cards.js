@@ -366,7 +366,7 @@ function card_generate_back(data, options) {
 		result += '    <div class="card-back-inner">';
 		
 		if(data.bgtext && data.bgtext != "") {
-			result += '     <div class="card-title card-title-13">' + data.bgtext + '</div>';
+			result += '     <div class="card-title card-title-13 card-title-back">' + data.bgtext + '</div>';
 		}
 		
 		result += '      <div class="card-back-icon icon-' + icon + '" ' + style_color + '></div>';
