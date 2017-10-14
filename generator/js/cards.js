@@ -24,13 +24,15 @@ function card_default_data() {
         count: 1,
         title: "New card",
         contents: [],
-        tags: []
+        tags: [],
+		bgtext: ""
     };
 }
 
 function card_init(card) {
     card.title = card.title || "";
     card.contents = card.contents || [];
+	card.bgtext = card.bgtext || "";
     card.tags = card.tags || [];
 }
 
