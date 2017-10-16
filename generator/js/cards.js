@@ -25,7 +25,8 @@ function card_default_data() {
         title: "New card",
         contents: [],
         tags: [],
-		bgtext: ""
+		bgtext: "",
+		bgtextbellow: ""
     };
 }
 
@@ -33,6 +34,7 @@ function card_init(card) {
     card.title = card.title || "";
     card.contents = card.contents || [];
 	card.bgtext = card.bgtext || "";
+	card.bgtextbellow = card.bgtextbellow || "";
     card.tags = card.tags || [];
 }
 
@@ -370,6 +372,11 @@ function card_generate_back(data, options) {
 		}
 		
 		result += '      <div class="card-back-icon icon-' + icon + '" ' + style_color + '></div>';
+		
+		if(data.bgtextbellow && data.bgtextbellow != "") {
+			result += '     <div class="card-title card-title-13 card-title-back">' + data.bgtextbellow + '</div>';
+		}
+		
 		result += '    </div>';
 	}
     result += '  </div>';
