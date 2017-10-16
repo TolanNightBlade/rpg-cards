@@ -183,6 +183,7 @@ function ui_update_selected_card() {
 		$("#card-background").val(card.background_image);
         $("#card-contents").val(card.contents.join("\n"));
 		$("#card-bgtext").val(card.bgtext);
+		$("#card-bgtextbellow").val(card.bgtextbellow);
         $("#card-tags").val(card.tags.join(", "));
         $("#card-color").val(card.color).change();
     } else {
@@ -194,6 +195,7 @@ function ui_update_selected_card() {
 		$("#card-background").val("");
         $("#card-contents").val("");
 		$("#card-bgtext").val("");
+		$("#card-bgtextbellow").val("");
         $("#card-tags").val("");
         $("#card-color").val("").change();
     }
@@ -373,6 +375,14 @@ function ui_change_card_bgtext_keyup() {
 }
 ui_change_card_bgtext_keyup.timeout = null;
 
+function ui_change_card_bgtextbellow_keyup() {
+	clearTimeout(ui_change_card_bgtextbellow_keyup.timeout);
+    ui_change_card_bgtextbellow_keyup.timeout = setTimeout(function () {
+        $('#card-bgtextbellow').trigger('change');
+    }, 200);
+}
+ui_change_card_bgtextbellow_keyup.timeout = null;
+
 function ui_change_card_tags() {
     var value = $(this).val();
 
@@ -532,10 +542,12 @@ $(document).ready(function () {
 	$("#card-color").change(ui_change_card_color);
     $("#card-contents").change(ui_change_card_contents);
 	$("#card-bgtext").change(ui_change_card_property);
+	$("#card-bgtextbellow").change(ui_change_card_property);
     $("#card-tags").change(ui_change_card_tags);
 
     $("#card-contents").keyup(ui_change_card_contents_keyup);
 	$("#card-bgtext").keyup(ui_change_card_bgtext_keyup);
+	$("#card-bgtextbellow").keyup(ui_change_card_bgtextbellow_keyup);
 
     $("#page-size").change(ui_change_option);
     $("#page-rows").change(ui_change_option);
