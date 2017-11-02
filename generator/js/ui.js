@@ -96,10 +96,36 @@ function ui_load_files(evt) {
     $("#file-load-form")[0].reset();
 }
 
+function ui_load_copy_files(evt) {
+    // ui_clear_all();
+
+    var files = evt.target.files;
+
+    for (var i = 0, f; f = files[i]; i++) {
+        var reader = new FileReader();
+
+        reader.onload = function (reader) {
+            var data = JSON.parse(this.result);
+            ui_add_copy_cards(data);
+        };
+
+        reader.readAsText(f);
+    }
+
+    // Reset file input
+    $("#file-load-form")[0].reset();
+}
+
 function ui_init_cards(data) {
     data.forEach(function (card) {
         card_init(card);
     });
+}
+
+function ui_add_copy_cards(data) {
+    ui_init_cards(data);
+    copy_card_data = copy_card_data.concat(data);
+    ui_update_copy_card_list();
 }
 
 function ui_add_cards(data) {
@@ -147,8 +173,18 @@ function ui_selected_card_index() {
     return parseInt($("#selected-card").val(), 10);
 }
 
+function ui_selected_copy_card_index() {
+    return parseInt($("#selected-copycardlist").val(), 10);
+}
+
 function ui_selected_card() {
     return card_data[ui_selected_card_index()];
+}
+
+function ui_delete_copycard() {
+    var index = ui_selected_copy_card_index();
+    copy_card_data.splice(index, 1);
+    ui_update_copy_card_list();
 }
 
 function ui_delete_card() {
@@ -583,6 +619,8 @@ $(document).ready(function () {
     //$("#button-save").click(ui_save_file);
 	$("#button-save-copylist").click(ui_save_copylist_file);
 	$("#button-clear-copylist").click(ui_clear_copylist);
+	$("#button-load-copylist").click(ui_load_copy_files);
+	$("#button-remove-copylist").click(ui_delete_copycard);
 	
     $("#button-sort").click(ui_sort);
     $("#button-filter").click(ui_filter);
