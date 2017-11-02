@@ -255,7 +255,7 @@ function card_element_dndstats_do(params, card_data, options, stats, mods) {
     return result;
 }
 
-function card_element_Saves(params, card_data, options, stats, mods) {
+function card_element_ac(params, card_data, options, stats, mods) {
 	var result = "";
 	
 	result += '<div class="card-element card-description-line">';
@@ -280,7 +280,7 @@ function card_element_Saves(params, card_data, options, stats, mods) {
 	return result;
 }
 
-function card_element_ac(params, card_data, options, stats, mods) {
+function card_element_Saves(params, card_data, options, stats, mods) {
 	var result = "";
 	
 	result += '<div class="card-element card-description-line">';
