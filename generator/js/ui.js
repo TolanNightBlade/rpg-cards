@@ -93,6 +93,7 @@ function ui_load_files(evt) {
     }
 
     // Reset file input
+	$("#file-load-copy-form")[0].reset();
     $("#file-load-form")[0].reset();
 }
 
@@ -113,7 +114,8 @@ function ui_load_copy_files(evt) {
     }
 
     // Reset file input
-    $("#file-load-form")[0].reset();
+    $("#file-load-copy-form")[0].reset();
+	$("#file-load-form")[0].reset();
 }
 
 function ui_init_cards(data) {
@@ -619,7 +621,8 @@ $(document).ready(function () {
     //$("#button-save").click(ui_save_file);
 	$("#button-save-copylist").click(ui_save_copylist_file);
 	$("#button-clear-copylist").click(ui_clear_copylist);
-	$("#button-load-copylist").click(ui_load_copy_files);
+	$("#button-load_copylist").click(function () { $("#file-load").click(); });
+	$("#file-copyload").change(ui_load_copy_files);
 	$("#button-remove-copylist").click(ui_delete_copycard);
 	
     $("#button-sort").click(ui_sort);
