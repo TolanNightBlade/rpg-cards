@@ -68,6 +68,7 @@ function ui_clear_copylist() {
     copy_card_data = [];
     ui_update_card_list();
 	ui_update_copy_card_list();
+	local_store_save();
 }
 
 function ui_clear_all() {
@@ -168,6 +169,8 @@ function ui_update_copy_card_list() {
             .attr("value", i)
             .text(card.title));
     }
+	
+	local_store_save();
 }
 
 function ui_update_card_list() {
