@@ -579,6 +579,8 @@ $(document).ready(function () {
     $("#button-load-sample").click(ui_load_sample);
     //$("#button-save").click(ui_save_file);
 	$("#button-save-copylist").click(ui_save_copylist_file);
+	$("#button-clear-copylist").click(ui_clear_copylist);
+	
     $("#button-sort").click(ui_sort);
     $("#button-filter").click(ui_filter);
     $("#button-add-card").click(ui_add_new_card);
