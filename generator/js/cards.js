@@ -275,6 +275,12 @@ function card_element_ac(params, card_data, options, stats, mods) {
 		result += ((params[2] || "") + ";");
 	} catch(ex) {}
 	
+	try {
+		if(params[3] && params[3] !== "") {
+			result += params[3];
+		}
+	} catch(ex) {}
+	
 	result +="</div>";
 	
 	return result;
