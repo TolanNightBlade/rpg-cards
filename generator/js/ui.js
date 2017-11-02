@@ -1,5 +1,6 @@
 // Ugly global variable holding the current card deck
 var card_data = [];
+var copy_card_data = [];
 var card_options = card_default_options();
 
 function mergeSort(arr, compare) {
@@ -63,6 +64,12 @@ function ui_load_sample() {
     ui_update_card_list();
 }
 
+function ui_clear_copylist() {
+    copy_card_data = [];
+    ui_update_card_list();
+	ui_update_copy_card_list();
+}
+
 function ui_clear_all() {
     card_data = [];
     ui_update_card_list();
@@ -106,6 +113,17 @@ function ui_add_new_card() {
     ui_select_card_by_index(card_data.length - 1);
 }
 
+function ui_copy_toseperatelist() {
+	
+	if (card_data.length > 0) {
+        var old_card = ui_selected_card();
+        var new_card = $.extend({}, old_card);
+        copy_card_data.push(new_card);
+    }
+	
+	ui_update_copy_card_list();
+}
+
 function ui_duplicate_card() {
     if (card_data.length > 0) {
         var old_card = ui_selected_card();
@@ -139,6 +157,19 @@ function ui_delete_card() {
     ui_select_card_by_index(Math.min(index, card_data.length - 1));
 }
 
+function ui_update_copy_card_list() {
+	//$("#total_card_count").text("Deck contains " + card_data.length + " unique cards.");
+
+    $('#selected-copycardlist').empty();
+    for (var i = 0; i < copy_card_data.length; ++i) {
+        var card = copy_card_data[i];
+        $('#selected-copycardlist')
+            .append($("<option></option>")
+            .attr("value", i)
+            .text(card.title));
+    }
+}
+
 function ui_update_card_list() {
     $("#total_card_count").text("Deck contains " + card_data.length + " unique cards.");
 
@@ -156,7 +187,18 @@ function ui_update_card_list() {
 
 function ui_save_file() {
     var str = JSON.stringify(card_data, null, "  ");
-    var parts = [str];
+    
+	ui_save_file_do(str);
+}
+
+function ui_save_copylist_file() {
+    var str = JSON.stringify(copy_card_data, null, "  ");
+    
+	ui_save_file_do(str);
+}
+
+function ui_save_file_do(str) {
+	var parts = [str];
     var blob = new Blob(parts, { type: 'application/json' });
     var url = URL.createObjectURL(blob);
 
@@ -170,6 +212,7 @@ function ui_save_file() {
 
     setTimeout(function () { URL.revokeObjectURL(url); }, 500);
 }
+
 ui_save_file.filename = 'rpg_cards.json';
 
 function ui_update_selected_card() {
@@ -477,12 +520,26 @@ function local_store_save() {
             //if the local store save failed should we notify the user that the data is not being saved?
             console.log(e);
         }
+		
+		try {
+            localStorage.setItem("copy_card_data", JSON.stringify(copy_card_data));
+        } catch (e){
+            //if the local store save failed should we notify the user that the data is not being saved?
+            console.log(e);
+        }
     }
 }
 function local_store_load() {
     if(window.localStorage){
         try {
             card_data = JSON.parse(localStorage.getItem("card_data")) || card_data;
+        } catch (e){
+            //if the local store load failed should we notify the user that the data load failed?
+            console.log(e);
+        }
+		
+		try {
+            copy_card_data = JSON.parse(localStorage.getItem("copy_card_data")) || copy_card_data;
         } catch (e){
             //if the local store load failed should we notify the user that the data load failed?
             console.log(e);
@@ -521,6 +578,7 @@ $(document).ready(function () {
     $("#button-clear").click(ui_clear_all);
     $("#button-load-sample").click(ui_load_sample);
     //$("#button-save").click(ui_save_file);
+	$("#button-save-copylist").click(ui_save_copylist_file);
     $("#button-sort").click(ui_sort);
     $("#button-filter").click(ui_filter);
     $("#button-add-card").click(ui_add_new_card);
@@ -530,6 +588,9 @@ $(document).ready(function () {
     $("#button-apply-color").click(ui_apply_default_color);
     $("#button-apply-icon").click(ui_apply_default_icon);
     $("#button-apply-icon-back").click(ui_apply_default_icon_back);
+	
+	//copy list
+	$("#button-copytolist-card").click(ui_copy_toseperatelist);
 
     $("#selected-card").change(ui_update_selected_card);
 
