@@ -87,9 +87,9 @@ page[size="25x35"] {
 }
 
 .card-size-41x58 {
-    width:4.1in;
-    min-width:4.1in;
-    height:5.8in;
+    width:3.3in; /*4.1in*/
+    min-width:3.3in; /*4.1in*/
+    height:5in; /*5.8in*/
 }
 
 /* Landscape big card */
