@@ -262,17 +262,17 @@ function card_element_ac(params, card_data, options, stats, mods) {
 	result += "<b>AC:</b> ";
 	
 	try {
-		result += (params[0] + ";");
+		result += ((params[0] || "") + ";");
 	} catch(ex) {}
 	
 	result += "<b>Flat:</b> ";
 	try {
-		result += (params[1] + ";");
+		result += ((params[1] || "") + ";");
 	} catch(ex) {}
 	
 	result += "<b>Touch:</b> ";
 	try {
-		result += (params[2] + ";");
+		result += ((params[2] || "") + ";");
 	} catch(ex) {}
 	
 	result +="</div>";
@@ -287,17 +287,17 @@ function card_element_Saves(params, card_data, options, stats, mods) {
 	result += "<b>Fort:</b> ";
 	
 	try {
-		result += (params[0] + ";");
+		result += ((params[0] || "") + ";");
 	} catch(ex) {}
 	
 	result += "<b>Ref:</b> ";
 	try {
-		result += (params[1] + ";");
+		result += ((params[1] || "") + ";");
 	} catch(ex) {}
 	
 	result += "<b>Will:</b> ";
 	try {
-		result += (params[2] + ";");
+		result += ((params[2] || "") + ";");
 	} catch(ex) {}
 	
 	result +="</div>";
