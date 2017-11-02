@@ -277,7 +277,7 @@ function card_element_Saves(params, card_data, options, stats, mods) {
 	
 	result +="</div>";
 	
-	return reset;
+	return result;
 }
 
 function card_element_ac(params, card_data, options, stats, mods) {
@@ -301,7 +301,7 @@ function card_element_ac(params, card_data, options, stats, mods) {
 	} catch(ex) {}
 	
 	result +="</div>";
-	return reset;
+	return result;
 }
 
 function card_element_bullet(params, card_data, options) {
