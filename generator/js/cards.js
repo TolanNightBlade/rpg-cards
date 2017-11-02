@@ -220,7 +220,18 @@ function card_element_dndstats(params, card_data, options) {
         }
         mods[i] = "&nbsp;(" + mod + ")";
     }
+	
+	return card_element_dndstats_do(params, card_data, options, stats, mods);
+}
 
+function card_element_dndstats_blank(params, card_data, options) {
+    var stats = ["", "", "", "", "", ""];
+    var mods = ["(___)","(___)","(___)","(___)","(___)","(___)"];
+    	
+	return card_element_dndstats_do(params, card_data, options, stats, mods);
+}
+
+function card_element_dndstats_do(params, card_data, options, stats, mods) {
     var result = "";
     result += '<table class="card-stats">';
     result += '    <tbody><tr>';
@@ -279,6 +290,7 @@ var card_element_generators = {
     boxes: card_element_boxes,
     description: card_element_description,
     dndstats: card_element_dndstats,
+	dndstatsblank: card_element_dndstats_blank,
     text: card_element_text,
     center: card_element_center,
     justify: card_element_justify,
