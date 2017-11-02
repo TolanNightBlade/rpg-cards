@@ -255,6 +255,55 @@ function card_element_dndstats_do(params, card_data, options, stats, mods) {
     return result;
 }
 
+function card_element_Saves(params, card_data, options, stats, mods) {
+	var result = "";
+	
+	result += '<div class="card-element card-description-line">';
+	result += "<b>AC:</b> ";
+	
+	try {
+		result += (params[0] + ";");
+	} catch(ex) {}
+	
+	result += "<b>Flat:</b> ";
+	try {
+		result += (params[1] + ";");
+	} catch(ex) {}
+	
+	result += "<b>Touch:</b> ";
+	try {
+		result += (params[2] + ";");
+	} catch(ex) {}
+	
+	result +="</div>";
+	
+	return reset;
+}
+
+function card_element_ac(params, card_data, options, stats, mods) {
+	var result = "";
+	
+	result += '<div class="card-element card-description-line">';
+	result += "<b>Fort:</b> ";
+	
+	try {
+		result += (params[0] + ";");
+	} catch(ex) {}
+	
+	result += "<b>Ref:</b> ";
+	try {
+		result += (params[1] + ";");
+	} catch(ex) {}
+	
+	result += "<b>Will:</b> ";
+	try {
+		result += (params[2] + ";");
+	} catch(ex) {}
+	
+	result +="</div>";
+	return reset;
+}
+
 function card_element_bullet(params, card_data, options) {
     var result = "";
     result += '<ul class="card-element card-bullet-line">';
@@ -288,6 +337,8 @@ var card_element_generators = {
     rule: card_element_ruler,
     ruler: card_element_ruler,
     boxes: card_element_boxes,
+	saves: card_element_Saves,
+	ac: card_element_ac,
     description: card_element_description,
     dndstats: card_element_dndstats,
 	dndstatsblank: card_element_dndstats_blank,
