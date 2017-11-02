@@ -276,9 +276,7 @@ function card_element_ac(params, card_data, options, stats, mods) {
 	} catch(ex) {}
 	
 	try {
-		if(params[3] && params[3] !== "") {
-			result += params[3];
-		}
+		result += (params[3] || "");
 	} catch(ex) {}
 	
 	result +="</div>";
@@ -290,20 +288,24 @@ function card_element_Saves(params, card_data, options, stats, mods) {
 	var result = "";
 	
 	result += '<div class="card-element card-description-line">';
-	result += "<b>Fort:</b> ";
+	result += "<b>Fort:</b>&nbsp;";
 	
 	try {
 		result += ((params[0] || "") + ";");
 	} catch(ex) {}
 	
-	result += "<b>Ref:</b> ";
+	result += "&nbsp;<b>Ref:</b>&nbsp;";
 	try {
 		result += ((params[1] || "") + ";");
 	} catch(ex) {}
 	
-	result += "<b>Will:</b> ";
+	result += "<b>&nbsp;Will:</b>&nbsp;";
 	try {
 		result += ((params[2] || "") + ";");
+	} catch(ex) {}
+	
+	try {
+		result += (params[3] || "");
 	} catch(ex) {}
 	
 	result +="</div>";
