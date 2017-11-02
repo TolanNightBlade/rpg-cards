@@ -675,4 +675,5 @@ $(document).ready(function () {
     $("#filter-execute").click(ui_filter_execute);
 
     ui_update_card_list();
+	ui_update_copy_card_list();
 });
