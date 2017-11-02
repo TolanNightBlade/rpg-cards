@@ -621,7 +621,7 @@ $(document).ready(function () {
     //$("#button-save").click(ui_save_file);
 	$("#button-save-copylist").click(ui_save_copylist_file);
 	$("#button-clear-copylist").click(ui_clear_copylist);
-	$("#button-load_copylist").click(function () { $("#file-load").click(); });
+	$("#button-load-copylist").click(function () { $("#file-copyload").click(); });
 	$("#file-copyload").change(ui_load_copy_files);
 	$("#button-remove-copylist").click(ui_delete_copycard);
 	
